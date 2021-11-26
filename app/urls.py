@@ -4,8 +4,7 @@ from app import views
 
 
 urlpatterns = [
-    url('^$',views.welcome,name = 'welcome'),
-    url(r'^photos/$',views.index,name= 'index')
+    url(r'^$',views.index,name= 'index')
 
 ]
 
