@@ -1,19 +1,22 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
 import datetime as dt
+from app.models import photos
 
 # Create your views here.
 
 def welcome(request):
     return render(request, 'welcome.html')
 
-# def news_of_day(request):
-#     date = dt.date.today()
-#     html = f'''
-#         <html>
-#             <body>
-#                 <h1> {date.day}-{date.month}-{date.year}</h1>
-#             </body>
-#         </html>
-#             '''
-#     return HttpResponse(html)
+
+# def index(request):
+#     return render(request, 'index.html')
+
+def index(request):
+    # imports photos and save it in database
+    photoapp = photos.objects.all()
+    # adding context 
+    ctx = {'photoapp':photoapp}
+    return render(request, 'all-photos/index.html', ctx)
+
+

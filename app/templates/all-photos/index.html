@@ -3,4 +3,13 @@
 {% block content %}
 {{block.super}}
 
+<body>
+    <h2>Cloudinary Fish</h2>
+    <!-- loop through all the images -->
+    {% for pic in photoapp %}
+    <h2>{{pic.title}}</h2>
+        <img src="{{pic.image.url}}" alt="fish">
+    {% endfor %}
+</body>
+
 {% endblock %}
