@@ -9,10 +9,10 @@ class Category(models.Model):
 
 
 class Location(models.Model):
-    name = models.CharField(max_length =30)
+    place = models.CharField(max_length =30)
 
     def __str__(self):
-        return self.name
+        return self.place
 
 # Create your models here.
 class photos(models.Model):
@@ -21,7 +21,7 @@ class photos(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=150)
     category = models.ForeignKey(Category, on_delete=models.CASCADE,null=True)
-    location = models.ForeignKey(Category, on_delete=models.CASCADE,null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return self.title
