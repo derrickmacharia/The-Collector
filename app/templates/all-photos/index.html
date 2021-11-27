@@ -5,17 +5,18 @@
 
 <body>
     <div class="container-fluid cont">
-        <h2>My Gallery !</h2>
+        <h2>My Collection !</h2>
         <!-- loop through all the images -->
     
         <div class="row">
             {% for pic in photoapp %}
             <div class="col-md-4">
                 <div class="cont">
-                    <div class=""><img src="{{ pic.image.url }}" alt="" class="responsive"></div>
-                    
+                    <a href="#"><div class=""><img src="{{ pic.image.url }}" alt="" class="responsive"></div>
+                    </a>
                     <div class="n"> 
-                        <a href="#"><h3>{{ pic.title }}</h3></a>
+                        <h3>{{ pic.title }}</h3>
+                        <h3>{{ pic.category.name }}</h3>
           
                     </div>            
                 </div>

@@ -1,8 +1,8 @@
 {%extends 'all-photos/base.html'%} 
 {% block content %}
-<div class="container search">
+<div class="container">
 
-  <div class="row">
+  <div class="row search">
     {% if photos%}
       <h2>Found {{ photos|length }} of searched term {{message}}</h2>
     {% else %}
@@ -15,8 +15,9 @@
 
   {% if photos %}
     {% for photos in photos %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{photos.title}}</h1>
+      <div class="col-sm-6 col-md-4">
+          <h3>{{photos.title}}</h3>
+          <div class=""><img src="{{ photos.image.url }}" alt="" class="responsive"></div>
       </div>
     {% endfor %}
   {% endif %}

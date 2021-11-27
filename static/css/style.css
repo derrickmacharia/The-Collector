@@ -26,6 +26,11 @@ h2{
     width: 100%;
 }
 .cont{
+    /* background-image: url("static/images/finance-Rewind-4.jpg"); */
+    font-family: 'Permanent Marker', cursive;
+}
+
+h3{
     font-family: 'Permanent Marker', cursive;
 }
 
