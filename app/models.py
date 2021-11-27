@@ -16,3 +16,7 @@ class photos(models.Model):
     def save_photos(self):
         self.save()
     
+    @classmethod
+    def search_by_title(cls,search_term):
+        app = cls.objects.filter(title__icontains=search_term)
+        return app

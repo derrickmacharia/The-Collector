@@ -4,12 +4,26 @@
 {{block.super}}
 
 <body>
-    <h2>Cloudinary Fish</h2>
-    <!-- loop through all the images -->
-    {% for pic in photoapp %}
-    <h2>{{pic.title}}</h2>
-        <img src="{{pic.image.url}}" alt="fish">
-    {% endfor %}
+    <div class="container-fluid cont">
+        <h2>My Gallery !</h2>
+        <!-- loop through all the images -->
+    
+        <div class="row">
+            {% for pic in photoapp %}
+            <div class="col-md-4">
+                <div class="cont">
+                    <div class=""><img src="{{ pic.image.url }}" alt="" class="responsive"></div>
+                    
+                    <div class="n"> 
+                        <a href="#"><h3>{{ pic.title }}</h3></a>
+          
+                    </div>            
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
 </body>
 
 {% endblock %}

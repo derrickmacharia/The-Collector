@@ -1,7 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato:wght@700&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato:wght@700&family=Permanent+Marker&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato:wght@700&family=Permanent+Marker&family=Poppins&family=Shojumaru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato:wght@700&family=Nosifer&family=Permanent+Marker&family=Poppins&family=Shojumaru&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .navi a{
     color: white;
 }
 
-h1{
+h2{
     color: crimson;
+    font-family: 'Nosifer', cursive;
+    text-align: center;
+    margin: 2rem 0rem;
+}
+
+.responsive{
+    height: auto;
+    width: 100%;
+}
+.cont{
+    font-family: 'Permanent Marker', cursive;
+}
+
+.search{
+    margin-top: 3rem;
 }
