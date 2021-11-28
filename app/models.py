@@ -9,10 +9,10 @@ class Category(models.Model):
 
 
 class Location(models.Model):
-    place = models.CharField(max_length =30)
+    name = models.CharField(max_length =30)
 
     def __str__(self):
-        return self.place
+        return self.name
 
 # Create your models here.
 class photos(models.Model):
@@ -30,10 +30,10 @@ class photos(models.Model):
         self.save()
 
     # update image
-    def update_photos(self, title, description, category):
+    def update_photos(self, title, description, category,location):
         self.title = title
         self.description = description
-        # self.location = location
+        self.location = location
         self.category = category
         self.save()
 
@@ -48,4 +48,8 @@ class photos(models.Model):
         app = cls.objects.filter(category__name__icontains=search_term)
         return app
 
+    @classmethod
+    def filter_by_location(cls, location):
+        images = photos.objects.filter(location__name=location)
+        return images
 

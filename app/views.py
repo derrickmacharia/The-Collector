@@ -2,7 +2,7 @@ from django.http.response import Http404
 from django.shortcuts import render
 from django.http  import HttpResponse
 import datetime as dt
-from app.models import photos
+from app.models import Location, photos
 from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
@@ -34,9 +34,17 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all-photos/search.html',{"message":message})
 
-def photo(request,photo_id):
-    try:
-        photo = photos.objects.get(id = photo_id)
-    except ObjectDoesNotExist:
-        raise Http404()
-    return render(request,"all-photos/photo.html", {"photo":photo})
+def location(request, location_id):
+    locations = Location.objects.all()
+    images = photos.objects.filter(location_id=location_id)
+    # get the location name
+    location = Location.objects.get(id=location_id)
+    title = location
+    return render(request, 'location.html', {'images': images, 'locations': locations, 'title': title})
+
+# def location(request,location_id):
+#     try:
+#         locations = Location.objects.get(id = location_id)
+#     except DoesNotExist:
+#         raise Http404()
+#     return render(request,"all-photos/location.html", {"locations":locations})

@@ -26,7 +26,6 @@ h2{
     width: 100%;
 }
 .cont{
-    /* background-image: url("static/images/finance-Rewind-4.jpg"); */
     font-family: 'Permanent Marker', cursive;
 }
 
@@ -36,4 +35,21 @@ h3{
 
 .search{
     margin-top: 3rem;
+}
+.photo-details{
+    display: none;
+
+}
+.details{
+    padding: 3rem;
+    border-radius: 15px;
+    position: absolute;
+    left: 50;
+    bottom: 0;
+    z-index: 5;
+    background: #F3B820;
+}
+.img-details{
+    width: 600px;
+
 }
