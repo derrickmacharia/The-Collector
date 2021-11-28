@@ -36,20 +36,7 @@ h3{
 .search{
     margin-top: 3rem;
 }
-.photo-details{
-    display: none;
-    
 
-}
-.details{
-    padding: 3rem;
-    border-radius: 15px;
-    position: absolute;
-    left: 50;
-    bottom: 0;
-    z-index: 5;
-    background: #F3B820;
-}
 .img-details{
     width: 600px;
 
@@ -58,4 +45,17 @@ a{
     font-size: large;
     gap: 10px;
 
+}
+.images{
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2 ), 0 0 5px rgba(0, 0, 0, 0.2), 0 0 7px rgba(0, 0, 0, 0.3);
+}
+.images h3{
+    margin-left: 10px;
+
+}
+.images span{
+    color: crimson;
 }
