@@ -1,5 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+import datetime as dt
 
 class Category(models.Model):
     name = models.CharField(max_length =30)
@@ -40,7 +41,8 @@ class photos(models.Model):
     # get all images
     @classmethod
     def get_all_photos(cls):
-        images = photos.objects.all()
+        today = dt.date.today()
+        images = photos.objects.all(pub_date__date = today)
         return images
     
     @classmethod
