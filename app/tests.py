@@ -90,7 +90,12 @@ class PhotosTestClass(TestCase):
         image = photos.objects.get(title="Photo Test")
         self.assertEqual(image.category.name, "Category Test")
     
-
+    def test_photos_str(self):
+        """
+        Test that the image string representation is correct
+        """
+        image = photos.objects.get(title="Photo Test")
+        self.assertEqual(str(image), "Photo Test")
 
 
 # category models test
