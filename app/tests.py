@@ -69,7 +69,14 @@ class PhotosTestClass(TestCase):
         image = photos.objects.get(title="Photo Test")
         self.assertEqual(image.title, "Photo Test")
     
+    def test_images_description(self):
+        """
+        Test that the image description is correct
+        """
+        image = photos.objects.get(title="Photo Test")
+        self.assertEqual(image.description, "Description Test")
 
+    
 
 
 # category models test
