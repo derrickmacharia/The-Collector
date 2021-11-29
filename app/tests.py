@@ -1,25 +1,6 @@
 from django.test import TestCase
 from app.models import Location, Category, photos
 
-# Create your tests here.
-class PhotosTestClass(TestCase):
-    def setUp(self):
-        """
-        Create a image for testing
-        """
-        photos.objects.create(
-            title="Photo Test",
-            description="Description Test",
-            location=Location.objects.create(name="Location Test"),
-            category=Category.objects.create(name="Category Test"),
-            image="http://test.com/test.jpg",
-            date_posted=None
-        )
-
-
-
-
-# category models test
 class CategoryTestCase(TestCase):
 
     def setUp(self):
@@ -64,3 +45,31 @@ class LocationTestCase(TestCase):
         """
         location = Location.objects.get(name="Photo Location")
         self.assertEqual(str(location), "Photo Location")
+
+
+# Create your tests here.
+class PhotosTestClass(TestCase):
+    def setUp(self):
+        """
+        Create a image for testing
+        """
+        photos.objects.create(
+            title="Photo Test",
+            description="Description Test",
+            location=Location.objects.create(name="Location Test"),
+            category=Category.objects.create(name="Category Test"),
+            image="http://test.com/test.jpg",
+            post_date=None
+        )
+
+    def test_images_name(self):
+        """
+        Test that the image name is correct
+        """
+        image = photos.objects.get(title="Photo Test")
+        self.assertEqual(image.title, "Photo Test")
+    
+
+
+
+# category models test
