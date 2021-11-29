@@ -15,14 +15,16 @@
 
   {% if photos %}
     {% for photos in photos %}
-      <div class="col-sm-6 col-md-4">
-          <h3>{{photos.title}}</h3>
-          <div class=""><img src="{{ photos.image.url }}" alt="" class="responsive"></div>
+    <div class="cont images">
+      <div class = "" data-toggle ="modal" data-target="#showPicModal{{pic.id}}">
+          <img src="{{photos.image.url}}" alt="" class="responsive">
       </div>
+      <div class=""><h3>Title : <span>{{ photos.title }}</span></h3></div>
       <div class="row"> 
-        <div class="col-md-6"><h4>Location : <span>{{ photos.location }}</span></h3></div>
-        <div class="col-md-6"><h4>Category : <span>{{ photos.category }}</span></h3></div>
-    </div> 
+          <div class="col-md-6"><h4>Location : <span>{{ photos.location }}</span></h3></div>
+          <div class="col-md-6"><h4>Category : <span>{{ photos.category }}</span></h3></div>
+      </div>            
+  </div>
     {% endfor %}
   {% endif %}
   </div>
