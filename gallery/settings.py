@@ -18,6 +18,41 @@ import cloudinary.uploader
 import cloudinary.api
 from decouple import config
 import django_heroku
+from decouple import config,Csv
+
+
+MODE=config("MODE", default="dev")
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = os.environ.get('DEBUG', True)
+
+# development
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+#adding config
+cloudinary.config( 
+  cloud_name = 'the-collector', 
+  api_key =  '385692492331583', 
+  api_secret = 'wpPzGYYSWBJ_4NCwwSEC0YUMSO8'
+)
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'the-collector',
+    'API_KEY': '385692492331583',
+    'API_SECRET': 'wpPzGYYSWBJ_4NCwwSEC0YUMSO8'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,12 +63,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -48,6 +82,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary'
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +101,7 @@ ROOT_URLCONF = 'gallery.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,"templates")],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,12 +179,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#adding config
-cloudinary.config( 
-  cloud_name = config('C_NAME'), 
-  api_key = config('API_KEY'), 
-  api_secret = config('API_SECRET')
-)
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
