@@ -9,6 +9,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    overflow-x: hidden;
+}
 
 .navi a{
     color: white;
@@ -22,7 +25,7 @@ h2{
 }
 
 .responsive{
-    height: auto;
+    height: 90%;
     width: 100%;
 }
 .disciple{
@@ -48,7 +51,7 @@ a{
 }
 .images{
     text-align: center;
-    padding: 1rem;
+    padding: 0.7rem;
     border-radius: 10px;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2 ), 0 0 5px rgba(0, 0, 0, 0.2), 0 0 7px rgba(0, 0, 0, 0.3);
 }
@@ -57,5 +60,28 @@ a{
 
 }
 .images span{
+    color: crimson;
+}
+
+.locations{
+    margin-top: 3rem;
+    text-align: center;
+}
+.tag{
+    margin-left: 10px;
+}
+.locations h2{
+    color: black;
+    margin-bottom: 1rem;
+}
+.locations a{
+    font-size: 20px;
+    margin-left: 12px;
+    border-radius: 10px;
+    background-color: crimson;
+    color: white;
+    padding: 13px 10px;
+}
+.mode span{
     color: crimson;
 }

@@ -17,15 +17,15 @@
                     </div>
                     <div class=""><h3>Title : <span>{{ pic.title }}</span></h3></div>
                     <div class="row"> 
-                        <div class="col-md-6"><h3>Location : <span>{{ pic.location }}</span></h3></div>
-                        <div class="col-md-6"><h3>Category : <span>{{ pic.category }}</span></h3></div>
+                        <div class="col-md-6"><h4>Location : <span>{{ pic.location }}</span></h3></div>
+                        <div class="col-md-6"><h4>Category : <span>{{ pic.category }}</span></h3></div>
                         
                         
                     </div>            
                 </div>
             </div>
             <div class="modal fade" id="showPicModal{{pic.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-dialog modal-dialog-centered mode" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modalPictureTitle">{{pic.name}}</h5>
@@ -35,16 +35,16 @@
                     </div>
                     <div class="modal-body">
                       <img src="{{pic.image.url}}" class = "responsive"alt="{{pic.name}}">
-                      <p class="text-centre">Description : {{pic.description}}</p>
+                      <p class="text-centre"><span>Description : </span>{{pic.description}}</p>
                         <div class="row">
                             <div class="col-md-4">
-                                <p>Category : {{pic.category}}</p>
+                                <p><span>Category : </span>{{pic.category}}</p>
                             </div>
                             <div class="col-md-4">
-                                <p>Location : {{pic.location}}</p>
+                                <p><span>Location : </span>{{pic.location}}</p>
                             </div>
                             <div class="col-md-4">
-                                <p> Posted : {{pic.post_date}}</p>
+                                <p> <span>Posted : </span>{{pic.post_date}}</p>
                             </div>
                           </div>
                         </div>
@@ -58,23 +58,20 @@
             {% endfor %}
         </div>
 
-        <div class="row">
-            <div class="col-md-6 locations">
-                <h1>Locations</h1>
-                {% for location in locations%}
-                    <!-- loop through all the images -->      
-                    <a class="loc" href="/?location={{location.id}}">
-                        {{location.name}}
-                    </a>
-                    
-                {% endfor %}
-
-            </div>
-        </div>
-
-        <!-- Modal -->
-   
         
+    </div>
+    <div class="row">
+        <div class="col-md-6 locations">
+            <h2>Locations</h2>
+            {% for location in locations%}
+                <!-- loop through all the images -->      
+                <a class="loc" href="/?location={{location.id}}">
+                    {{location.name}}
+                </a>
+                
+            {% endfor %}
+
+        </div>
     </div>
     
 </body>
