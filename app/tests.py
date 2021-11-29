@@ -8,12 +8,12 @@ class PhotosTestClass(TestCase):
         Create a image for testing
         """
         photos.objects.create(
-            title="Image Test",
+            title="Photo Test",
             description="Description Test",
             location=Location.objects.create(name="Location Test"),
             category=Category.objects.create(name="Category Test"),
             image="http://test.com/test.jpg",
-            created_at=None
+            date_posted=None
         )
 
 
@@ -40,4 +40,25 @@ class CategoryTestCase(TestCase):
         category = Category.objects.get(name="Photo Category")
         self.assertEqual(str(category), "Photo Category")
 
+# location model tests
+class LocationTestCase(TestCase):
 
+    def setUp(self):
+        """
+        Create a setup for testing locaation
+        """
+        Location.objects.create(name="Photo Location")
+    
+    def test_location_name(self):
+        """
+        Test that the location name is correct
+        """
+        location = Location.objects.get(name="Photo Location")
+        self.assertEqual(location.name, "Photo Location")
+        
+    def test_location_str(self):
+        """
+        Test that the location string representation is correct
+        """
+        location = Location.objects.get(name="Photo Location")
+        self.assertEqual(str(location), "Photo Location")
