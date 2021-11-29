@@ -83,6 +83,13 @@ class PhotosTestClass(TestCase):
         image = photos.objects.get(title="Photo Test")
         self.assertEqual(image.location.name, "Location Test")
     
+    def test_photos_category(self):
+        """
+        Test that the image category is correct
+        """
+        image = photos.objects.get(title="Photo Test")
+        self.assertEqual(image.category.name, "Category Test")
+    
 
 
 
